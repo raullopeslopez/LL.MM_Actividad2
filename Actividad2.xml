@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca SYSTEM "Actividad2_DTD.dtd">
+<biblioteca>
+    <libros>
+        <libro id="L0001" tipo_clase="novela" paginas_lib="56">
+            <titulo></titulo>
+            <capitulos>
+                <capitulo paginas_cap="2">
+                    <titulo_cap></titulo_cap>
+                    <indice_cap></indice_cap>
+                    <sinopsis></sinopsis>
+                    <contenido enlace=""></contenido>
+                </capitulo>
+            </capitulos>
+        </libro>
+    </libros>
+    <revistas>
+        <revista id="R0002" tipo_clase="coches" paginas_rev="4">
+            <titulo_revista></titulo_revista>
+            <numero></numero>
+            <indice_rev>234</indice_rev>
+            <secciones_rev>
+                <seccion_rev paginas_sec="4">
+                    <contenido enlace="asdf"></contenido>
+                </seccion_rev>
+            </secciones_rev>
+        </revista>
+    </revistas>
+    <periodicos>
+        <periodico id="P0003" tipo_clase="" fecha_publi="12/4/2006">
+            <secciones_per>
+                <seccion_per tipo_seccion="coches">
+                    <articulos autor="Carlos"></articulos>
+                    <contenido enlace="asdf"></contenido> 
+                </seccion_per>
+            </secciones_per>
+            <indice_per></indice_per>
+        </periodico>
+    </periodicos>
+</biblioteca>
