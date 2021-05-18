@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE biblioteca SYSTEM "biblioteca.dtd">
+<biblioteca>
+	<libros>
+		<libro id="L1234" tipo_clase = "novela" paginas = "40" xmlns:libro="https://www.marca.com">
+			<titulo>Título</titulo>
+			<capitulos>
+				<capitulo paginas = "10">Introducción</capitulo>
+					<contenido libro:href="https://www.marca.com"></contenido>
+				<capitulo paginas = "10">Desarrollo</capitulo>
+					<contenido libro:href="https://www.marca.com"></contenido>
+				<capitulo paginas = "10">Final</capitulo>
+					<contenido libro:href="https://www.marca.com"></contenido>
+				<capitulo paginas = "10">Conclusión</capitulo>
+					<contenido libro:href="https://www.marca.com"></contenido>
+			</capitulos>
+			<indice>Índice</indice>
+			<sinopsis>Sinopsis</sinopsis>
+		</libro>
+	</libros>
+	<revistas>
+		<revista id="R1234" tipo_clase = "informatica" xmlns:revista="https://www.marca.com">
+			<titulo>Título</titulo>
+			<numero_revista>6</numero_revista>
+			<indice>Índice</indice>
+			<secciones>
+				<seccion paginas = "10">
+					<contenido revista:href="https://www.marca.com"></contenido>
+				</seccion>
+				<seccion paginas = "10">
+					<contenido revista:href="https://www.marca.com"></contenido>
+				</seccion>
+				<seccion paginas = "10">
+					<contenido revista:href="https://www.marca.com"></contenido>
+				</seccion>
+			</secciones>
+		</revista>
+	</revistas>
+	<periodicos>
+		<periodico id="P1234" tipo_clase = "nacional" fecha = "20/02/2020">
+			<secciones tipo_seccion = "economica">
+				<articulo autor ="Juan">Juan y su caballo</articulo>
+				<articulo autor ="Maria">María y su espada</articulo>
+				<articulo autor ="Pepe">Pepe y la piedra</articulo>
+			</secciones>
+			<indice>Índice</indice>
+		</periodico>
+	</periodicos>
+</biblioteca>

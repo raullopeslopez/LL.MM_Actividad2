@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:contenido="https://www.marca.com">
+  <xs:import namespace="https://www.marca.com" schemaLocation="contenido.xsd"/>
+  <xs:element name="biblioteca">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="libros"/>
+        <xs:element ref="revistas"/>
+        <xs:element ref="periodicos"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="libros">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="libro"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="libro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titulo"/>
+        <xs:element ref="capitulos"/>
+        <xs:element ref="indice"/>
+        <xs:element ref="sinopsis"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="paginas" use="required" type="xs:integer"/>
+      <xs:attribute name="tipo_clase" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="capitulos">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="contenido"/>
+        <xs:element ref="capitulo"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="capitulo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="paginas" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sinopsis" type="xs:NCName"/>
+  <xs:element name="revistas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="revista"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="revista">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titulo"/>
+        <xs:element ref="numero_revista"/>
+        <xs:element ref="indice"/>
+        <xs:element ref="secciones"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="tipo_clase" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numero_revista" type="xs:integer"/>
+  <xs:element name="periodicos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="periodico"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="periodico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="secciones"/>
+        <xs:element ref="indice"/>
+      </xs:sequence>
+      <xs:attribute name="fecha" use="required"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="tipo_clase" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titulo" type="xs:NCName"/>
+  <xs:element name="contenido">
+    <xs:complexType>
+      <xs:attribute ref="contenido:href" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="indice" type="xs:NCName"/>
+  <xs:element name="secciones">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" ref="articulo"/>
+        <xs:element maxOccurs="unbounded" ref="seccion"/>
+      </xs:choice>
+      <xs:attribute name="tipo_seccion" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="articulo">
+    <xs:complexType mixed="true">
+      <xs:attribute name="autor" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seccion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contenido"/>
+      </xs:sequence>
+      <xs:attribute name="paginas" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
