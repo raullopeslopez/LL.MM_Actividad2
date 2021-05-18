@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE biblioteca SYSTEM "biblioteca.dtd">
+<biblioteca>
+    <libros>
+        <libro id_libro= "L1234" tipo_clase="Novela" pags_libro= "356">
+            <titulo_lib>Titulo libro</titulo_lib>
+            <capitulos_lib>
+                <capitulo_lib pags_capitulo= "23">
+                    <titulo_cap>Capitulo 2</titulo_cap>
+                    <contenido_cap enlace= "Enlace a informacion"></contenido_cap>
+                    <indice_cap></indice_cap>
+                    <sinopsis></sinopsis>
+                </capitulo_lib>
+            </capitulos_lib>
+        </libro>
+    </libros>
+    <revistas>
+        <revista id_revista= "R1234" tipo_clase="Informatica" pags_revista= "27">
+            <titulo_rev>Titulo revista</titulo_rev>
+            <num_revista></num_revista>
+            <ind_revista></ind_revista>
+            <secciones_rev>
+                <seccion_rev pags_revista= "3">
+                    <contenido_rev enlace= "Enlace a informacion"></contenido_rev>
+                </seccion_rev>
+            </secciones_rev>  
+        </revista>
+    </revistas> 
+    <periodicos>
+        <periodico id_periodico= "P1234" tipo_clase="Internacional" fecha_pub= "x/x/x"> 
+            <indice_per></indice_per>
+            <secciones_per>
+                <seccion_per id_seccion= "Economia">
+                    <articulos_per>
+                        <articulo_per autor= "J. R. Rallo"></articulo_per>
+                        <contenido_art enlace= "Enlace a contenido"></contenido_art>
+                    </articulos_per>
+                </seccion_per>
+            </secciones_per>
+        </periodico>
+    </periodicos>    
+</biblioteca>

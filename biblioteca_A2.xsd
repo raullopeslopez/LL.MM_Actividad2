@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- Nodo raíz Biblioteca -->
+<xs:element name="biblioteca">
+ <xs:complexType>
+  <xs:sequence>
+   <!-- Nodo LIBROS -->
+   <xs:element name="libros" maxOccurs="unbounded">
+    <!-- Elementos LIBROS -->
+    <xs:complexType>
+     <xs:sequence>
+        <xs:element name="libro"> <!-- Nodo LIBRO -->
+        <xs:complexType>
+         <!-- Elementos LIBRO -->
+         <xs:sequence>
+          <xs:element name="titulo_lib" type="xs:string"/>
+          <xs:element name="capitulos_lib">
+           <xs:complexType>
+            <xs:sequence> <!-- Elementos de CAPITULO_LIB -->
+             <xs:element name="capitulo_lib">
+              <xs:complexType>
+               <xs:sequence>
+                <xs:element name="titulo_cap" type="xs:string"/>
+                <xs:element name="contenido_cap">
+                 <xs:complexType>
+                  <!-- Atributos CONTENIDO_CAP -->
+                  <xs:attribute name="enlace" type="xs:string"/> 
+                  </xs:complexType> 
+                 </xs:element>
+                 <xs:element name="indice_cap" type="xs:string"/>
+                 <xs:element name="sinopsis" type="xs:string"/> 
+                </xs:sequence>
+               <!-- Atributo CAPITULO_LIB -->
+               <xs:attribute name="pags_capitulo" type="xs:integer" use="required"/> 
+               </xs:complexType>
+              </xs:element> <!-- Fin  CAPITULO_LIB-->
+             </xs:sequence>
+            </xs:complexType>
+           </xs:element> <!-- Fin CAPITULOS_LIB -->
+          </xs:sequence>
+         <!-- Atributos de LIBRO -->
+         <xs:attribute name="id_libro" type="xs:string" use="required"/>
+         <xs:attribute name="tipo_clase" type="xs:string" use="required"/>
+         <xs:attribute name="pags_libro" type="xs:string" use="required"/>
+         </xs:complexType> 
+        </xs:element> <!-- Fin LIBRO -->
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> <!-- Fin de libros -->
+   <xs:element name="revistas" maxOccurs="unbounded"> <!-- Nodo REVISTAS -->
+    <xs:complexType>
+       <xs:sequence>
+          <xs:element name="revista"> <!-- Nodo REVISTA -->
+             <xs:complexType>
+                <xs:sequence> <!-- Elementos REVISTA -->
+                 <xs:element name="titulo_rev" type="xs:string"/>
+                 <xs:element name="num_revista" type="xs:string"/>
+                 <xs:element name="ind_revista" type="xs:string"/>
+                 <xs:element name="secciones_rev" maxOccurs="unbounded"> <!-- Inicio SECCIONES_REV -->
+                  <xs:complexType>
+                     <xs:sequence>
+                      <xs:element name="seccion_rev"> <!-- Inicio de SECCION_REV -->
+                       <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="contenido_rev"> 
+                            <xs:complexType>
+                             <!-- Atributo de CONTENIDO_REV -->
+                             <xs:attribute name="enlace" type="xs:string" use="required"/>
+                            </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                       <!-- Atributo de SECCION_REV -->
+                       <xs:attribute name="pags_revista" type="xs:integer" use="required"/>
+                       </xs:complexType> 
+                      </xs:element> <!-- Fin de SECCION_REV -->
+                     </xs:sequence>
+                  </xs:complexType>
+                 </xs:element> <!-- Fin de SECCIONES_REV -->
+                </xs:sequence>
+             <!-- Atributos de REVISTA -->
+             <xs:attribute name="id_revista" type="xs:string" use="required"/>
+             <xs:attribute name="tipo_clase" type="xs:string" use="required"/>
+             <xs:attribute name="pags_revista" type="xs:string" use="required"/>   
+             </xs:complexType>
+          </xs:element> <!-- Fin REVISTA -->
+       </xs:sequence>
+    </xs:complexType>
+   </xs:element>  <!-- Fin REVISTAS --> 
+   <xs:element name="periodicos" maxOccurs="unbounded"> <!-- Inicio de PERIODICOS -->
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="periodico"> <!-- Inicio de PERIODICO-->
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element name="indice_per" type="xs:string"/>
+         <xs:element name="secciones_per" maxOccurs="unbounded"> <!-- Inicio de SECCIONES_PER -->
+          <xs:complexType>
+           <xs:sequence>
+            <xs:element name="seccion_per"> <!-- Inicio de SECCION_PER -->
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element name="articulos_per" maxOccurs="unbounded"> <!-- Inicio de ARTICULOS_PER -->
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element name="articulo_per"> <!-- Inicio de ARTICULO_PER -->
+                   <xs:complexType>
+                   <!-- Atributo de ARTICULO_PER -->
+                   <xs:attribute name="autor" type="xs:string" use="required"/>
+                   </xs:complexType>
+                  </xs:element> <!-- Fin de ARTICULO_PER -->
+                  <xs:element name="contenido_art"> <!-- Inicio de CONTENIDO_ART -->
+                   <xs:complexType>
+                   <!-- Atributo de CONTENIDO_ART -->
+                   <xs:attribute name="enlace" type="xs:string" use="required"/>
+                   </xs:complexType>
+                  </xs:element> <!-- Fin de CONTENIDO_ART -->
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element> <!-- Fin de ARTICULOS_PER -->
+              </xs:sequence>
+             <!-- Atributo de SECCION_ART -->
+             <xs:attribute name="id_seccion" type="xs:string" use="required"/> 
+             </xs:complexType>
+            </xs:element> <!-- Fin de SECCION_PER -->
+           </xs:sequence>
+          </xs:complexType>
+         </xs:element> <!-- Inicio de SECCIONES_PER -->
+        </xs:sequence>
+       <!-- Atributos de PERIODICO -->
+       <xs:attribute name="id_periodico" type="xs:string" use="required"/>
+       <xs:attribute name="tipo_clase" type="xs:string" use="required"/>
+       <xs:attribute name="fecha_pub" type="xs:date" use="required"/>
+       </xs:complexType>
+      </xs:element> <!-- Fin de PERIODICO-->
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element> <!-- Fin de PERIODICOS -->
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:element> <!-- Fin de biblioteca -->
+</xs:schema> <!-- Fin de schema -->
