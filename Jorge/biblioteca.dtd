@@ -1,0 +1,57 @@
+<!-- Nodos -->
+
+<!ELEMENT biblioteca (libros+,revistas+,periodicos+)> 
+<!ELEMENT libros (libro+)>
+<!ELEMENT revistas (revista+)>
+<!ELEMENT periodicos (periodico+)>
+
+<!-- Libros -->
+
+<!ELEMENT libro (titulo,capitulos,indice,sinopsis)>
+<!ATTLIST libro
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED
+    paginas CDATA #REQUIRED>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT capitulos (capitulo+)>
+<!ELEMENT capitulo (contenido)>
+<!ATTLIST capitulo
+    paginas CDATA #REQUIRED>
+<!ELEMENT contenido (#PCDATA)>
+<!ATTLIST contenido
+  enlace CDATA #REQUIRED>  
+<!ELEMENT sinopsis (#PCDATA)>
+
+<!-- Revistas -->
+
+
+<!ELEMENT revista (titulo, numero_revista, indice, secciones)>
+<!ATTLIST revista
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED>
+<!ELEMENT numero_revista (#PCDATA)>
+<!ELEMENT indice (#PCDATA)>
+<!ELEMENT ind_revista (#PCDATA)>
+<!ELEMENT secciones (seccion+)>
+<!ELEMENT seccion (contenido)>
+<!ATTLIST seccion 
+    paginas CDATA #REQUIRED>
+<!ATTLIST contenido
+  enlace CDATA #REQUIRED>
+
+
+<!-- Periodicos -->
+
+<!ELEMENT periodico (seciones+, indice)>
+<!ATTLIST periodico
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED
+    fecha CDATA #REQUIRED>  
+<!ELEMENT seciones (articulo+)>
+<!ATTLIST seciones
+    tipo_seccion CDATA #REQUIRED>
+<!ELEMENT articulo (contenido)>
+<!ATTLIST articulo
+    autor CDATA #REQUIRED>
+<!ATTLIST contenido
+  enlace CDATA #REQUIRED>

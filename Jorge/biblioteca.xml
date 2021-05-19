@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE biblioteca SYSTEM "biblioteca.dtd">
+<biblioteca>
+	<libros>
+		<libro id="L1234" tipo_clase = "novela" paginas = "40">
+			<titulo>Título</titulo>
+			<capitulos>
+				<capitulo paginas = "10">
+					<contenido enlace = ""></contenido>
+				</capitulo>
+				<capitulo paginas = "10">
+					<contenido enlace = ""></contenido>
+				</capitulo>
+				<capitulo paginas = "10">
+					<contenido enlace = ""></contenido>
+				</capitulo>
+				<capitulo paginas = "10">
+					<contenido enlace = ""></contenido>
+				</capitulo>	
+			</capitulos>
+			<indice>Índice</indice>
+			<sinopsis>Sinopsis</sinopsis>
+		</libro>
+	</libros>
+	<revistas>
+		<revista id="R1234" tipo_clase = "informatica">
+			<titulo>Título</titulo>
+			<numero_revista>6</numero_revista>
+			<indice>Índice</indice>
+			<secciones>
+				<seccion paginas = "10">
+					<contenido enlace = ""></contenido>
+				</seccion>
+				<seccion paginas = "10">
+					<contenido enlace = ""></contenido>
+				</seccion>
+				<seccion paginas = "10">
+					<contenido enlace = ""></contenido>
+				</seccion>
+			</secciones>
+		</revista>
+	</revistas>
+	<periodicos>
+		<periodico id="P1234" tipo_clase = "nacional" fecha = "20/02/2020">
+			<seccionesP tipo_seccion = "economica">
+				<articulo autor ="Juan">
+					<contenido enlace = ""></contenido>
+				</articulo>
+				<articulo autor ="Maria">
+					<contenido enlace = ""></contenido>
+				</articulo>
+				<articulo autor ="Pepe">
+					<contenido enlace = ""></contenido>
+				</articulo>
+			</seccionesP>
+			<indice>Índice</indice>
+		</periodico>
+	</periodicos>
+</biblioteca>
