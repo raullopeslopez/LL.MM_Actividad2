@@ -1,0 +1,95 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT biblioteca (libros,revistas,periodicos)>
+<!ATTLIST biblioteca
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT libros (libro)>
+<!ATTLIST libros
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT revistas (revista)>
+<!ATTLIST revistas
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT periodicos (periodico)>
+<!ATTLIST periodicos
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT libro (indice,capitulos,titulo,sinopsis)>
+<!ATTLIST libro
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #REQUIRED
+  num_paginas CDATA #REQUIRED
+  tipo_clase (novela | infantil | didactico) #REQUIRED>
+
+<!ELEMENT revista (secciones_revista,titulo,num_revista,indice)>
+<!ATTLIST revista
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #REQUIRED
+  secciones CDATA #REQUIRED
+  tipo_clase (informatica | corazon | coches | investigacion | otras) #REQUIRED>
+
+<!ELEMENT periodico (secciones,indice)>
+<!ATTLIST periodico
+  xmlns CDATA #FIXED ''
+  f_publicacion CDATA #REQUIRED
+  id NMTOKEN #REQUIRED
+  tipo_clase (nacionales | internacionales) #REQUIRED>
+
+<!ELEMENT capitulos (capitulo)>
+<!ATTLIST capitulos
+  xmlns CDATA #FIXED ''
+  titulo CDATA #REQUIRED>
+
+<!ELEMENT sinopsis (#PCDATA)>
+<!ATTLIST sinopsis
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT num_revista (#PCDATA)>
+<!ATTLIST num_revista
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT capitulo (contenido)>
+<!ATTLIST capitulo
+  xmlns CDATA #FIXED ''
+  cap_paginas CDATA #REQUIRED>
+
+<!ELEMENT indice (#PCDATA)>
+<!ATTLIST indice
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT contenido (#PCDATA)>
+<!ATTLIST contenido
+  xmlns CDATA #FIXED ''
+  contenido CDATA #IMPLIED>
+
+<!ELEMENT titulo (#PCDATA)>
+<!ATTLIST titulo
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT secciones_revista (seccion_revista)>
+<!ATTLIST secciones_revista
+  xmlns CDATA #FIXED ''
+  num_paginas CDATA #IMPLIED>
+
+<!ELEMENT seccion_revista (contenido|articulos)>
+<!ATTLIST seccion_revista
+  xmlns CDATA #FIXED ''
+  contenido CDATA #IMPLIED>
+
+<!ELEMENT secciones (seccion)>
+<!ATTLIST secciones
+  xmlns CDATA #FIXED ''
+  num_paginas CDATA #IMPLIED>
+
+<!ELEMENT seccion (contenido|articulos)>
+<!ATTLIST seccion
+  xmlns CDATA #FIXED ''
+  contenido CDATA #IMPLIED
+  tipo_seccion (economica | opinion | deportes | nacional | internacional) #REQUIRED>
+
+<!ELEMENT articulos (#PCDATA)>
+<!ATTLIST articulos
+  xmlns CDATA #FIXED ''
+  autor CDATA #REQUIRED>

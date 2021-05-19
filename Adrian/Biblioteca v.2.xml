@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca SYSTEM "Biblioteca.dtd">
+
+<biblioteca>
+    <libros>
+        <libro id="L9251" num_paginas="118" tipo_clase="novela">
+            <indice> Capitulo uno</indice>
+                <capitulos titulo="Cap VII: El experimento">
+                    <capitulo cap_paginas="17">
+						<contenido contenido="https://www.amazon.es/tejedora-muerte-Castellano-Partir-Altamar/dp/8421652524%22%3E"></contenido>
+					</capitulo>
+				</capitulos>
+            <titulo>La tejedora</titulo>
+            <sinopsis>Narra la historia de una mujer que al regresar a su antigua casa comienza a recordar sucesos de su pasado...</sinopsis>
+
+        </libro>
+    </libros>
+    <revistas>
+            <revista id="R5987" tipo_clase="investigacion" secciones="7">
+                <secciones_revista num_paginas="7">
+                    <seccion_revista contenido="https://www.soundonsound.com/%22%3E">
+						<contenido>Contenido</contenido>
+					</seccion_revista>
+                </secciones_revista>
+                <titulo>SOS</titulo>
+                <num_revista>87</num_revista>
+                <indice>La física del sonido...</indice>
+            </revista>
+    </revistas>
+    <periodicos>
+            <periodico id="P6553" tipo_clase="nacionales" f_publicacion="11/07/2010">
+                <secciones>
+                    <seccion tipo_seccion="deportes">
+                        <articulos autor="Álvaro Roca">Uno</articulos>
+                    </seccion>
+                </secciones>
+                <indice>Somos campeones del mundo...</indice>
+        </periodico>
+    </periodicos>
+</biblioteca>
