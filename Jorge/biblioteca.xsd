@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:contenido="https://www.marca.com">
-  <xs:import namespace="https://www.marca.com" schemaLocation="contenido.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="biblioteca">
     <xs:complexType>
       <xs:sequence>
@@ -32,19 +31,18 @@
   </xs:element>
   <xs:element name="capitulos">
     <xs:complexType>
-      <xs:choice maxOccurs="unbounded">
-        <xs:element ref="contenido"/>
-        <xs:element ref="capitulo"/>
-      </xs:choice>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="capitulo"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="capitulo">
     <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:NCName">
+      <xs:complexContent>
+        <xs:extension base="contenido">
           <xs:attribute name="paginas" use="required" type="xs:integer"/>
         </xs:extension>
-      </xs:simpleContent>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:element name="sinopsis" type="xs:NCName"/>
@@ -68,6 +66,22 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="numero_revista" type="xs:integer"/>
+  <xs:element name="secciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="seccion"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seccion">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="contenido">
+          <xs:attribute name="paginas" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="periodicos">
     <xs:complexType>
       <xs:sequence>
@@ -78,7 +92,7 @@
   <xs:element name="periodico">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="secciones"/>
+        <xs:element ref="seccionesP"/>
         <xs:element ref="indice"/>
       </xs:sequence>
       <xs:attribute name="fecha" use="required"/>
@@ -86,33 +100,33 @@
       <xs:attribute name="tipo_clase" use="required" type="xs:NCName"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="titulo" type="xs:NCName"/>
-  <xs:element name="contenido">
+  <xs:element name="seccionesP">
     <xs:complexType>
-      <xs:attribute ref="contenido:href" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="indice" type="xs:NCName"/>
-  <xs:element name="secciones">
-    <xs:complexType>
-      <xs:choice>
+      <xs:sequence>
         <xs:element maxOccurs="unbounded" ref="articulo"/>
-        <xs:element maxOccurs="unbounded" ref="seccion"/>
-      </xs:choice>
-      <xs:attribute name="tipo_seccion" type="xs:NCName"/>
+      </xs:sequence>
+      <xs:attribute name="tipo_seccion" use="required" type="xs:NCName"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="articulo">
-    <xs:complexType mixed="true">
-      <xs:attribute name="autor" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="seccion">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="contenido"/>
-      </xs:sequence>
-      <xs:attribute name="paginas" use="required" type="xs:integer"/>
+      <xs:complexContent>
+        <xs:extension base="contenido">
+          <xs:attribute name="autor" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <xs:element name="titulo" type="xs:NCName"/>
+  <xs:complexType name="contenido">
+    <xs:sequence>
+      <xs:element ref="contenido"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="contenido">
+    <xs:complexType>
+      <xs:attribute name="enlace" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="indice" type="xs:NCName"/>
 </xs:schema>

@@ -1,81 +1,57 @@
-<!ELEMENT biblioteca (libros,revistas,periodicos)>
-<!ATTLIST biblioteca
-  xmlns CDATA #FIXED ''>
+<!-- Nodos -->
 
-<!ELEMENT libros (libro)>
-<!ATTLIST libros
-  xmlns CDATA #FIXED ''>
+<!ELEMENT biblioteca (libros+,revistas+,periodicos+)> 
+<!ELEMENT libros (libro+)>
+<!ELEMENT revistas (revista+)>
+<!ELEMENT periodicos (periodico+)>
 
-<!ELEMENT revistas (revista)>
-<!ATTLIST revistas
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT periodicos (periodico)>
-<!ATTLIST periodicos
-  xmlns CDATA #FIXED ''>
+<!-- Libros -->
 
 <!ELEMENT libro (titulo,capitulos,indice,sinopsis)>
 <!ATTLIST libro
-  xmlns CDATA #FIXED ''
-  id NMTOKEN #REQUIRED
-  paginas CDATA #REQUIRED
-  tipo_clase NMTOKEN #REQUIRED>
-
-<!ELEMENT revista (titulo,numero_revista,indice,secciones)>
-<!ATTLIST revista
-  xmlns CDATA #FIXED ''
-  id NMTOKEN #REQUIRED
-  tipo_clase NMTOKEN #REQUIRED>
-
-<!ELEMENT periodico (secciones,indice)>
-<!ATTLIST periodico
-  xmlns CDATA #FIXED ''
-  fecha CDATA #REQUIRED
-  id NMTOKEN #REQUIRED
-  tipo_clase NMTOKEN #REQUIRED>
-
-<!ELEMENT capitulos (contenido|capitulo)+>
-<!ATTLIST capitulos
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT sinopsis (#PCDATA)>
-<!ATTLIST sinopsis
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT numero_revista (#PCDATA)>
-<!ATTLIST numero_revista
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT capitulo (#PCDATA)>
-<!ATTLIST capitulo
-  xmlns CDATA #FIXED ''
-  paginas CDATA #REQUIRED>
-
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED
+    paginas CDATA #REQUIRED>
 <!ELEMENT titulo (#PCDATA)>
-<!ATTLIST titulo
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT contenido EMPTY>
+<!ELEMENT capitulos (capitulo+)>
+<!ELEMENT capitulo (contenido)>
+<!ATTLIST capitulo
+    paginas CDATA #REQUIRED>
+<!ELEMENT contenido (#PCDATA)>
 <!ATTLIST contenido
-  xmlns CDATA #FIXED ''
-  xmlns:contenido CDATA #FIXED 'https://www.marca.com'
-  contenido:href CDATA #REQUIRED>
+  enlace CDATA #REQUIRED>  
+<!ELEMENT sinopsis (#PCDATA)>
 
+<!-- Revistas -->
+
+
+<!ELEMENT revista (titulo, numero_revista, indice, secciones)>
+<!ATTLIST revista
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED>
+<!ELEMENT numero_revista (#PCDATA)>
 <!ELEMENT indice (#PCDATA)>
-<!ATTLIST indice
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT secciones (seccion+|articulo+)>
-<!ATTLIST secciones
-  xmlns CDATA #FIXED ''
-  tipo_seccion NMTOKEN #IMPLIED>
-
+<!ELEMENT ind_revista (#PCDATA)>
+<!ELEMENT secciones (seccion+)>
 <!ELEMENT seccion (contenido)>
-<!ATTLIST seccion
-  xmlns CDATA #FIXED ''
-  paginas CDATA #REQUIRED>
+<!ATTLIST seccion 
+    paginas CDATA #REQUIRED>
+<!ATTLIST contenido
+  enlace CDATA #REQUIRED>
 
-<!ELEMENT articulo (#PCDATA)>
+
+<!-- Periodicos -->
+
+<!ELEMENT periodico (seciones+, indice)>
+<!ATTLIST periodico
+    id ID #REQUIRED
+    tipo_clase CDATA #REQUIRED
+    fecha CDATA #REQUIRED>  
+<!ELEMENT seciones (articulo+)>
+<!ATTLIST seciones
+    tipo_seccion CDATA #REQUIRED>
+<!ELEMENT articulo (contenido)>
 <!ATTLIST articulo
-  xmlns CDATA #FIXED ''
-  autor NMTOKEN #REQUIRED>
+    autor CDATA #REQUIRED>
+<!ATTLIST contenido
+  enlace CDATA #REQUIRED>
